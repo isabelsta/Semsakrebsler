@@ -1,0 +1,52 @@
+.header{
+    background-color: #800000;
+    text-align: right;
+    color: white;
+    margin-top: 0;
+    opacity: 0.8;
+}
+
+body{
+    background-image: url("hintergrund.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.h1{
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.weine{
+    color: gray;
+}
+
+.title{
+    text-align: center;
+    padding: 10px;
+}
+
+.logo{
+    align-content: left;
+    height: 60px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.tabelle{
+    width:100%;
+}
+
+.anlegen{
+    align-content: left;
+    display: inline-block;
+    background-color: #800000;
+    color: white;
+}
+
+.kaufen{
+    align-content: right;
+    background-color: #800000;
+    color: white;
+}
