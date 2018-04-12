@@ -1,0 +1,40 @@
+use Semsakrebsler_DB
+
+CREATE TABLE whines (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(255),
+    amount varchar(255),
+    land varchar(255),
+    direction varchar(255),
+    sellingprice varchar(255),
+    buyingprice varchar(255),
+    region varchar(255),
+    year varchar(255)
+);
+
+CREATE TABLE customers (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    lastname varchar(255),
+    firstname varchar(255),
+    phonenr varchar(255),
+    adress_street varchar(255),
+    adress_place varchar(255),
+    adress_housenr int ,
+    adress_regioncode int 
+);
+
+CREATE TABLE suplliers (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(255),
+    phonenr varchar(255),
+    adress_street varchar(255),
+    adress_place varchar(255),
+    adress_housenr int ,
+    adress_regioncode int 
+);
+
+CREATE TABLE supplierofferings (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    supplier_id int ,
+    whine_id int 
+);
