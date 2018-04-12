@@ -4,38 +4,37 @@
     color: white;
     margin-top: 0;
     opacity: 0.8;
+    width: 100%;
 }
 
 body{
-    background-image: url("hintergrund.jpg");
+    background-image: url("static/hintergrund.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .h1{
     display: inline-block;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.weine{
-    color: gray;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .title{
     text-align: center;
-    padding: 10px;
+    padding: 15px;
+    margin-top: 0;
+    margin-bottom: 50px;
 }
 
 .logo{
-    align-content: left;
     height: 60px;
-    padding-bottom: 10px;
-    color: white;
+    padding-bottom: 15px;
 }
 
 .tabelle{
-    width:100%;
+    table-layout: fixed;
 }
 
 .anlegen{
@@ -50,3 +49,33 @@ body{
     background-color: #800000;
     color: white;
 }
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: grey;
+    text-decoration: none;
+}
+
+.aktiv{
+    color: grey;
+}
+
+.border{
+    background-color: rgba(250,235,215, .9);
+}
+
+.icons{
+    font-size: 36px;
+}
+
+.kundenelement{
+    padding: 10px;
+}
+
+.spalte{
+    padding-left: 100px;
+}
+
