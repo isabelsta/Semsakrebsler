@@ -5,16 +5,14 @@ function showWine() {
     xhttp.onreadystatechange = function () {
         var json = JSON.parse(this.responseText);
         if (this.readyState == 4 && this.status == 200) {
-            txt += "<div class='row'>";
             for (i in json.list) {
-                txt += "<div class='col-md-4'><h4>" + json.list[i].Name + ", " + json.list[i].Jahrgang + "</h4>"
+                txt += "<div class='row'><div class='col-md-4'><h4>" + json.list[i].Name + ", " + json.list[i].Jahrgang + "</h4>"
                 + "<h4 style='opacity: .7'>" + json.list[i].Region + ", " + json.list[i].Land + ", " + json.list[i].Lage
                 + "</h4></div>" + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Kaufpreis+"'></div>"
                 + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Verkaufspreis+"'></div>"
                 + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Anzahl+"'></div>"
-                + "<div class='icons col-md-2'><span class='glyphicon glyphicon-edit'></span><span class='glyphicon glyphicon-trash'></span></div>";
+                + "<div class='icons col-md-2'><span class='glyphicon glyphicon-edit'></span><span class='glyphicon glyphicon-trash'></span></div></div>";
             }
-            txt += "</div>";
             document.getElementById("infos").innerHTML = txt;
         }
     };
@@ -25,13 +23,16 @@ function showWine() {
 //Lieferanten ausgeben
 function showLieferanten() {
     var xhttp = new XMLHttpRequest();
+    var i, txt="";
     xhttp.onreadystatechange = function () {
         var json = JSON.parse(this.responseText);
         if (this.readyState == 4 && this.status == 200) {
-            for (var i = 0; i < json.list.length; i++) {
-                document.getElementById("name").innerHTML = json.list[i].Name + ", " + json.list[i].Ort;
-                document.getElementById("info").innerHTML = json.list[i].Telefonnummer;
+            for (i in json.list) {
+                txt += "<div class='row'><div class='col-md-10'><h4>" + json.list[i].Name + ", " + json.list[i].Ort + "</h4>"
+                + "<h4 style='opacity: .7'>" + json.list[i].Telefonnummer + "</h4></div>"
+                + "<div class='icons col-md-2'><span class='glyphicon glyphicon-edit'></span><span class='glyphicon glyphicon-trash'></span></div></div>";
             }
+            document.getElementById("infos").innerHTML = txt;
         }
     };
     xhttp.open("GET", "http://localhost:8080/rest/api/getSuppliers", true);
