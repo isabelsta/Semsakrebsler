@@ -9,35 +9,69 @@
     <script src="request.js"></script>
 </head>
 
+
 <body onload="showWine()" class="hintergrund">
-    <header class="header">
-        <img src="static/logo.png"  class="logo"/>
-        <h1 class="h1 aktiv">Weine</h1>
-        <h1 class="h1"><a href=kunden.html class=link>Kunden</a></h1>
-        <h1 class="h1"><a href=lieferanten.html class=link>Lieferanten</a></h>
-    </header>
-    <div class="container border">
+<header class="header">
+    <img src="static/logo.png" class="logo"/>
+    <h1 class="h1 aktiv">Weine</h1>
+    <h1 class="h1"><a href=kunden.html class=link>Kunden</a></h1>
+    <h1 class="h1"><a href=lieferanten.html class=link>Lieferanten</a></h>
+</header>
+<div class="container border">
 
     <div class="kundenelement">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-4">
+                <div class="specialHeading">Namen:</div>
+            </div>
+            <div class="col-md-2">
+                <div class="specialHeading">Einkaufspreis:</div>
+            </div>
+            <div class="col-md-2">
+                <div class="specialHeading">Verkaufspreis:</div>
+            </div>
+            <div class="col-md-2">
+                <div class="specialHeading">Stück:</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kundenelement">
+        <div class="row">
+            <div class="col-md-4">
                 <h4 id="h4">2016 Rivaner trocken, Italien</h4>
                 <h4 style="opacity: .7">leicht, lebendig 11,5% vol. </h4>
             </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="ekpreis">
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="vkpreis">
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="stück">
+            </div>
             <div class="icons col-md-2">
                 <span class="glyphicon glyphicon-edit"></span>
                 <span class="glyphicon glyphicon-trash"></span>
             </div>
         </div>
     </div>
-
-
 
     <div class="kundenelement">
         <div class="row">
-            <div class="col-md-10">
-                <h4>2016 Müller-Thurgau trocken, Deutschland</h4>
-                <h4 style="opacity: .7">herzhaft, fruchtig 11,5% vol.</h4>
+            <div class="col-md-4">
+                <h4>2016 Rivaner trocken, Italien</h4>
+                <h4 style="opacity: .7">leicht, lebendig 11,5% vol. </h4>
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="ekpreis">
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="vkpreis">
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="stück">
             </div>
             <div class="icons col-md-2">
                 <span class="glyphicon glyphicon-edit"></span>
@@ -45,13 +79,21 @@
             </div>
         </div>
     </div>
-
 
     <div class="kundenelement">
         <div class="row">
-            <div class="col-md-10">
-                <h4>2016 Silvaner trocken, Deutschland</h4>
-                <h4 style="opacity: .7">der klassische Franke 12% vol. </h4>
+            <div class="col-md-4">
+                <h4>2016 Rivaner trocken, Italien</h4>
+                <h4 style="opacity: .7">leicht, lebendig 11,5% vol. </h4>
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="ekpreis">
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="vkpreis">
+            </div>
+            <div class="col-md-2">
+                <input class="center-block" size="4" id="stück">
             </div>
             <div class="icons col-md-2">
                 <span class="glyphicon glyphicon-edit"></span>
@@ -59,15 +101,26 @@
             </div>
         </div>
     </div>
+
 
     <div class="kundenelement">
         <div class="row">
                 <button onclick=newWine() class="anlegen">Wein anlegen</button>
                 <button onclick=buyWine() class="kaufen">Wein einkaufen</button>
                 <button onclick=sellWine() class="kaufen">Wein verkaufen</button>
-            
+
+            <div class="col-md-4">
+                <button class="anlegen">Wein anlegen</button>
+            </div>
+            <div class="col-md-4">
+                <button class="kaufen">Wein einkaufen</button>
+            </div>
+            <div class="col-md-4">
+                <button class="kaufen">Wein verkaufen</button>
+            </div>
+
+        </div>
     </div>
-</div>
 
 </body>
 
