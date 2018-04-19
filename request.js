@@ -1,16 +1,19 @@
 //Weine ausgeben
 function showWine() {
     var xhttp = new XMLHttpRequest();
+    var i, txt="";
     xhttp.onreadystatechange = function () {
         var json = JSON.parse(this.responseText);
         if (this.readyState == 4 && this.status == 200) {
-            for (var i = 0; i < json.list.length; i++) {
-                document.getElementById("name").innerHTML = json.list[i].Name + ", " + json.list[i].Jahrgang;
-                document.getElementById("jahr").innerHTML = json.list[i].Region + ", " + json.list[i].Land + ", " + json.list[i].Lage;
+            for (i in json.list) {
+                txt += "<h4>" + json.list[i].Name + ", " + json.list[i].Jahrgang + "</h4>"
+                + "<h4 style='opacity: .7'>" + json.list[i].Region + ", " + json.list[i].Land + ", " + json.list[i].Lage
+                + "</h4>";
                 document.getElementById("ekpreis").value = json.list[i].Kaufpreis;
                 document.getElementById("vkpreis").value = json.list[i].Verkaufspreis;
                 document.getElementById("stück").value = json.list[i].Anzahl;
             }
+            document.getElementById("infos").innerHTML = txt;
         }
     };
     xhttp.open("GET", "http://localhost:8080/rest/api/getWines", true);
