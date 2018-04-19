@@ -5,14 +5,15 @@ function showWine() {
     xhttp.onreadystatechange = function () {
         var json = JSON.parse(this.responseText);
         if (this.readyState == 4 && this.status == 200) {
+            txt += "<div class='row'>";
             for (i in json.list) {
-                txt += "<h4>" + json.list[i].Name + ", " + json.list[i].Jahrgang + "</h4>"
+                txt += "<div class='col-md-4'><h4>" + json.list[i].Name + ", " + json.list[i].Jahrgang + "</h4>"
                 + "<h4 style='opacity: .7'>" + json.list[i].Region + ", " + json.list[i].Land + ", " + json.list[i].Lage
-                + "</h4>";
-                document.getElementById("ekpreis").value = json.list[i].Kaufpreis;
-                document.getElementById("vkpreis").value = json.list[i].Verkaufspreis;
-                document.getElementById("stück").value = json.list[i].Anzahl;
+                + "</h4></div>" + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Kaufpreis+"'></div>"
+                + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Verkaufspreis+"'></div>"
+                + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Anzahl+"'></div>";
             }
+            txt += "</div>";
             document.getElementById("infos").innerHTML = txt;
         }
     };

@@ -8,7 +8,10 @@
     <title>Semsakrebsler</title>
     <script src="request.js"></script>
     <style>
-        #iframe, #iframeVer, #iframeEin, #iframeKunde {
+        #iframe,
+        #iframeVer,
+        #iframeEin,
+        #iframeKunde {
             display: none;
         }
 
@@ -18,36 +21,32 @@
 
 
 <body onload="showWine()" class="hintergrund">
-<header class="header">
-    <img src="static/logo.png" class="logo"/>
-    <h1 class="h1 aktiv">Weine</h1>
-    <h1 class="h1"><a href=kunden.html class=link>Kunden</a></h1>
-    <h1 class="h1"><a href=lieferanten.html class=link>Lieferanten</a></h>
-</header>
-<div class="container border">
+    <header class="header">
+        <img src="static/logo.png" class="logo" />
+        <h1 class="h1 aktiv">Weine</h1>
+        <h1 class="h1"><a href=kunden.html class=link>Kunden</a></h1>
+        <h1 class="h1"><a href=lieferanten.html class=link>Lieferanten</a></h>
+    </header>
+    <div class="container border">
 
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="specialHeading">Namen:</div>
-            </div>
-            <div class="col-md-2">
-                <div class="specialHeading">Einkaufspreis:</div>
-            </div>
-            <div class="col-md-2">
-                <div class="specialHeading">Verkaufspreis:</div>
-            </div>
-            <div class="col-md-2">
-                <div class="specialHeading">Stück:</div>
+        <div class="kundenelement">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="specialHeading">Namen:</div>
+                </div>
+                <div class="col-md-2">
+                    <div class="specialHeading">Einkaufspreis:</div>
+                </div>
+                <div class="col-md-2">
+                    <div class="specialHeading">Verkaufspreis:</div>
+                </div>
+                <div class="col-md-2">
+                    <div class="specialHeading">Stück:</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-4" id="infos">
-                
-            </div>
+        <div class="kundenelement" id="infos">
             <div class="col-md-2">
                 <input class="center-block" size="4" id="ekpreis">
             </div>
@@ -62,32 +61,31 @@
                 <span class="glyphicon glyphicon-trash"></span>
             </div>
         </div>
-    </div>
 
 
-    <div class="kundenelement">
-        <div class="row">
+        <div class="kundenelement">
+            <div class="row">
 
-            <div onclick=newWine() class="col-md-4">
-                <button class="anlegen" onclick="show()" id="button1">Wein anlegen</button>
-                
+                <div onclick=newWine() class="col-md-4">
+                    <button class="anlegen" onclick="show()" id="button1">Wein anlegen</button>
 
-            </div>
-            
-            <div onclick=buyWine() class="col-md-4">
-                <button onclick="showEin()" id="button1" class="kaufen">Wein einkaufen</button>
-            </div>
-            <div onclick="sellWine()" class="col-md-4">
-                <button onclick="showVer()" id="button1" class="kaufen">Wein verkaufen</button>
+
+                </div>
+
+                <div onclick=buyWine() class="col-md-4">
+                    <button onclick="showEin()" id="button1" class="kaufen">Wein einkaufen</button>
+                </div>
+                <div onclick="sellWine()" class="col-md-4">
+                    <button onclick="showVer()" id="button1" class="kaufen">Wein verkaufen</button>
+                </div>
+
             </div>
 
         </div>
-        
-    </div>
-<iframe id="iframe" class="iframe" src="static/wein_anlegen.html" width="100%" height="100%"></iframe>
-<iframe id="iframeEin" class="iframe" src="static/wein_einkaufen.html" width="100%" height="100%"></iframe>
-<iframe id="iframeVer" class="iframe" src="static/wein_verkaufen.html" width="100%" height="100%"></iframe>
-<iframe id="iframeKunde" class="iframe" src="static/kunde_auswaehlen.html" width="100%" height="100%"></iframe>
+        <iframe id="iframe" class="iframe" src="static/wein_anlegen.html" width="100%" height="100%"></iframe>
+        <iframe id="iframeEin" class="iframe" src="static/wein_einkaufen.html" width="100%" height="100%"></iframe>
+        <iframe id="iframeVer" class="iframe" src="static/wein_verkaufen.html" width="100%" height="100%"></iframe>
+        <iframe id="iframeKunde" class="iframe" src="static/kunde_auswaehlen.html" width="100%" height="100%"></iframe>
 </body>
 
 </html>
