@@ -8,7 +8,7 @@
     <title>Semsakrebsler</title>
     <script src="request.js"></script>
     <style>
-        #iframe {
+        #iframe, #iframeVer, #iframeEin, #iframeKunde {
             display: none;
         }
 
@@ -114,20 +114,25 @@
         <div class="row">
 
             <div onclick=newWine() class="col-md-4">
-                <button class="anlegen">Wein anlegen</button>
-                <iframe id="iframe" class="iframe" src="static/wein_anlegen.html"></iframe>
+                <button class="anlegen" onclick="show()" id="button1">Wein anlegen</button>
+                
 
             </div>
+            
             <div onclick=buyWine() class="col-md-4">
-                <button class="kaufen">Wein einkaufen</button>
+                <button onclick="showEin()" id="button1" class="kaufen">Wein einkaufen</button>
             </div>
-            <div class="col-md-4">
-                <button onclick=sellWine() class="kaufen">Wein verkaufen</button>
+            <div onclick="sellWine()" class="col-md-4">
+                <button onclick="showVer()" id="button1" class="kaufen">Wein verkaufen</button>
             </div>
 
         </div>
+        
     </div>
-
+<iframe id="iframe" class="iframe" src="static/wein_anlegen.html" width="100%" height="100%"></iframe>
+<iframe id="iframeEin" class="iframe" src="static/wein_einkaufen.html" width="100%" height="100%"></iframe>
+<iframe id="iframeVer" class="iframe" src="static/wein_verkaufen.html" width="100%" height="100%"></iframe>
+<iframe id="iframeKunde" class="iframe" src="static/kunde_auswaehlen.html" width="100%" height="100%"></iframe>
 </body>
 
 </html>

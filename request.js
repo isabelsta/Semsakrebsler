@@ -69,3 +69,20 @@ function show(){
     var iframe1 = document.getElementById("iframe");
     iframe1.style.display = 'block';
 }
+
+function showVer(){
+    var iframe1 = document.getElementById("iframeVer");
+    iframe1.style.display = 'block';
+}
+
+function showEin(){
+    var iframe1 = document.getElementById("iframeEin");
+    iframe1.style.display = 'block';
+}
+
+function select(){
+    //var iframe1 = document.getElementById("iframeVer");
+    //iframe1.style.display = 'none';
+    var iframe1 = document.getElementById("iframeKunde");
+    iframe1.style.display = 'block';
+}
