@@ -2,97 +2,111 @@
 <html lang="en">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
+
 <head>
     <meta charset="UTF-8">
-    <title>Kunden</title> 
-    <script src="request.js"></script>
+    <title>Kunden</title>
+    <script language="javascript" type="text/javascript" src="request.js"></script>
+    <style>
+        #iframe {
+            display: none;
+        }
+
+        ;
+    </style>
+
 </head>
+
 <body class="hintergrund">
-<header class="header">
-    <img src="static/logo.png"  class="logo"/>
-    <h1 class="h1"><a href="weine.html" class=link>Weine</a></h1>
-    <h1 class="h1 aktiv">Kunden</h1>
-    <h1 class="h1"><a href=lieferanten.html class=link>Lieferanten</a></h1>
-</header>
+    <header class="header">
+        <img src="static/logo.png" class="logo" />
+        <h1 class="h1"><a href="weine.html" class=link>Weine</a></h1>
+        <h1 class="h1 aktiv">Kunden</h1>
+        <h1 class="h1"><a href=lieferanten.html class=link>Lieferanten</a></h1>
+    </header>
 
-<div class="container border">
+    <div class="container border">
 
-    <div class="kundenelement" onload="loadClient(name, telefon)">
-        <div class="row">
-            <div class="col-md-10">
-                <h4>Rüdiger Schmidt</h4>
-                <h4 style="opacity: .7">01123/18317410</h4>
+        <div class="kundenelement" onload="loadClient(name, telefon)">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4>Rüdiger Schmidt</h4>
+                    <h4 style="opacity: .7">01123/18317410</h4>
+                </div>
+                <div class="icons col-md-2">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
+                </div>
             </div>
-            <div class="icons col-md-2">
-                <span class="glyphicon glyphicon-edit"></span>
-                <span class="glyphicon glyphicon-trash"></span>
+        </div>
+
+
+
+        <div class="kundenelement">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4>Dieter Müller</h4>
+                    <h4 style="opacity: .7">0198/91037401</h4>
+                </div>
+                <div class="icons col-md-2">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="kundenelement">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4>Karl-Hans Karle</h4>
+                    <h4 style="opacity: .7">0176/1839741</h4>
+                </div>
+                <div class="icons col-md-2">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="kundenelement">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4>Rosemarie Lang</h4>
+                    <h4 style="opacity: .7">0176/18937510</h4>
+                </div>
+                <div class="icons col-md-2">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="kundenelement">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4>Christian Cahle</h4>
+                    <h4 style="opacity: .7">0145/18397589</h4>
+                </div>
+                <div class="icons col-md-2">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
+                </div>
+            </div>
+        </div>
+
+        <iframe id="iframe" class="iframe" src="static/kunde_anlegen.html"></iframe>
+
+        <div class="kundenelement">
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    
+                    <button onclick="show()" id="button1" class=anlegen>Kunde anlegen</button>
+                </div>
             </div>
         </div>
     </div>
-
-
-
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-10">
-                <h4>Dieter Müller</h4>
-                <h4 style="opacity: .7">0198/91037401</h4>
-            </div>
-            <div class="icons col-md-2">
-                <span class="glyphicon glyphicon-edit"></span>
-                <span class="glyphicon glyphicon-trash"></span>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-10">
-                <h4>Karl-Hans Karle</h4>
-                <h4 style="opacity: .7">0176/1839741</h4>
-            </div>
-            <div class="icons col-md-2">
-                <span class="glyphicon glyphicon-edit"></span>
-                <span class="glyphicon glyphicon-trash"></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-10">
-                <h4>Rosemarie Lang</h4>
-                <h4 style="opacity: .7">0176/18937510</h4>
-            </div>
-            <div class="icons col-md-2">
-                <span class="glyphicon glyphicon-edit"></span>
-                <span class="glyphicon glyphicon-trash"></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-10">
-                <h4>Christian Cahle</h4>
-                <h4 style="opacity: .7">0145/18397589</h4>
-            </div>
-            <div class="icons col-md-2">
-                <span class="glyphicon glyphicon-edit"></span>
-                <span class="glyphicon glyphicon-trash"></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-10"></div>
-            <div class="col-md-2">
-                <button onclick=newClient() class=anlegen>Kunde anlegen</button>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
+
 </html>

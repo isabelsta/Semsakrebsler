@@ -64,3 +64,8 @@ function showLieferanten(){
     xhttp.open("GET", "http://localhost:8080/rest/api/", true);
     xhttp.send();
 }
+
+function show(){
+    var iframe1 = document.getElementById("iframe");
+    iframe1.style.display = 'block';
+}

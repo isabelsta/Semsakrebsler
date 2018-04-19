@@ -7,6 +7,13 @@
     <meta charset="UTF-8">
     <title>Semsakrebsler</title>
     <script src="request.js"></script>
+    <style>
+        #iframe {
+            display: none;
+        }
+
+        ;
+    </style>
 </head>
 
 <body onload="showLieferanten()" class="hintergrund">
@@ -31,11 +38,13 @@
         </div>
     </div>
 
+    <iframe id="iframe" class="iframe" src="static/lieferant_anlegen.html"></iframe>
+
     <div class="kundenelement">
         <div class="row">
             <div class="col-md-10"></div>
             <div class="col-md-2">
-                <button class=anlegen>Lieferant anlegen</button>
+                <button onclick="show()" id="button1" class=anlegen>Lieferant anlegen</button>
             </div>
         </div>
     </div>

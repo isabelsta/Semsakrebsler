@@ -7,6 +7,13 @@
     <meta charset="UTF-8">
     <title>Semsakrebsler</title>
     <script src="request.js"></script>
+    <style>
+        #iframe {
+            display: none;
+        }
+
+        ;
+    </style>
 </head>
 
 
@@ -108,6 +115,8 @@
 
             <div onclick=newWine() class="col-md-4">
                 <button class="anlegen">Wein anlegen</button>
+                <iframe id="iframe" class="iframe" src="static/wein_anlegen.html"></iframe>
+
             </div>
             <div onclick=buyWine() class="col-md-4">
                 <button class="kaufen">Wein einkaufen</button>
