@@ -11,7 +11,8 @@ function showWine() {
                 + "<h4 style='opacity: .7'>" + json.list[i].Region + ", " + json.list[i].Land + ", " + json.list[i].Lage
                 + "</h4></div>" + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Kaufpreis+"'></div>"
                 + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Verkaufspreis+"'></div>"
-                + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Anzahl+"'></div>";
+                + "<div class='col-md-2'><input class='center-block' size='4' value='"+json.list[i].Anzahl+"'></div>"
+                + "<div class='icons col-md-2'><span class='glyphicon glyphicon-edit'></span><span class='glyphicon glyphicon-trash'></span></div>";
             }
             txt += "</div>";
             document.getElementById("infos").innerHTML = txt;
