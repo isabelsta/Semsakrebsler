@@ -39,8 +39,8 @@
     <div class="kundenelement">
         <div class="row">
             <div class="col-md-4">
-                <h4 id="h4">2016 Rivaner trocken, Italien</h4>
-                <h4 style="opacity: .7">leicht, lebendig 11,5% vol. </h4>
+                <h4 id="name">2016 Rivaner trocken, Italien</h4>
+                <h4 id="jahr" style="opacity: .7">leicht, lebendig 11,5% vol. </h4>
             </div>
             <div class="col-md-2">
                 <input class="center-block" size="4" id="ekpreis">
@@ -105,18 +105,15 @@
 
     <div class="kundenelement">
         <div class="row">
-                <button onclick=newWine() class="anlegen">Wein anlegen</button>
-                <button onclick=buyWine() class="kaufen">Wein einkaufen</button>
-                <button onclick=sellWine() class="kaufen">Wein verkaufen</button>
 
-            <div class="col-md-4">
+            <div onclick=newWine() class="col-md-4">
                 <button class="anlegen">Wein anlegen</button>
             </div>
-            <div class="col-md-4">
+            <div onclick=buyWine() class="col-md-4">
                 <button class="kaufen">Wein einkaufen</button>
             </div>
             <div class="col-md-4">
-                <button class="kaufen">Wein verkaufen</button>
+                <button onclick=sellWine() class="kaufen">Wein verkaufen</button>
             </div>
 
         </div>
