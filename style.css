@@ -43,12 +43,15 @@ body{
     display: inline-block;
     background-color: #800000;
     color: white;
+    height: 45px;
 }
 
 .kaufen{
     align-content: right;
     background-color: #800000;
     color: white;
+    height: 45px;
+    width: -webkit-fill-available;
 }
 
 a{
@@ -80,3 +83,7 @@ a:hover{
     padding-left: 100px;
 }
 
+.specialHeading{
+    font-size: 0.5cm;
+    text-align: center;
+}
