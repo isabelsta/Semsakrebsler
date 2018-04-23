@@ -46,34 +46,259 @@
             </div>
         </div>
 
-        <div class="kundenelement" id="infos">
-            
-        </div>
-
+        <div class="kundenelement" id="infos"></div>
 
         <div class="kundenelement">
             <div class="row">
-
                 <div onclick=newWine() class="col-md-4">
-                    <button class="anlegen" onclick="show()" id="button1">Wein anlegen</button>
-
+                    <button class="anlegen" id="button1">Wein anlegen</button>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>
+                                <form id="neuerwein" action="#" method="post">
+                                    <h1>Wein anlegen</h1>
+                                    <table>
+                                        <td>
+                                            <tr>
+                                                <td><input id="Bezeichnung" type="text" placeholder="Bezeichnung"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input id="Herkunftsland" type="text" placeholder="Herkunftsland"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input id="Region" type="text" placeholder="Region"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input id="Lage" type="text" placeholder="Lage"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input id="Lieferant" type="text" placeholder="Preis Einkauf"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input id="Lieferant" type="text" placeholder="Preis Verkauf"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><select id="Lieferant" type="text" placeholder="Lieferant" style=" width: -webkit-fill-available;">
+                                                        <option>lieferant1</option>
+                                                        <option>lieferant2</option>
+                                                        <option>lieferant3</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tr>
+                                            <tr>
+                                                <td><input id="Speichern" type="submit" value="Speichern"></td>
+                                            </tr>
+                                    </table>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                    <script>
+                             var modal = document.getElementById("modal1");
+                             var btn = document.getElementById("button1");
+                             var span = document.getElementsByClassName("close")[0];
+                             btn.onclick = function () {
+                                 modal.style.display = "block";
+                             }
+                             span.onclick = function () {
+                                 modal.style.display = "none";
+                             }
+                             window.onclick = function (event) {
+                                 if (event.target == modal) {
+                                     modal.style.display = "none";
+                                 }
+                             }
+                    </script>
 
                 </div>
 
                 <div onclick=buyWine() class="col-md-4">
-                    <button onclick="showEin()" id="button1" class="kaufen">Wein einkaufen</button>
-                </div>
-                <div onclick="sellWine()" class="col-md-4">
-                    <button onclick="showVer()" id="button1" class="kaufen">Wein verkaufen</button>
+                    <button id="button2" class="kaufen">Wein einkaufen</button>
+                    <div id="modal2" class="modal">
+                        <div class="modal-content">
+                            <span class="close2">&times;</span>
+                            <p>
+                                <form id="einkaufen" action="#" method="post">
+                                    <h1>Wein einkaufen</h1>
+                                    <table>
+                                        <tr>
+                                            <td><input id="Lieferant" type="text" placeholder="Lieferant"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><br/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input id="Wein1" type="text" placeholder="Wein 1"></td>
+                                            <td><input id="Anzahl1" type="text" placeholder="Anzahl"></td>
+                                            <td><input id="EPreis1" type="text" placeholder="E. Preis"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input id="Wein2" type="text" placeholder="Wein 2"></td>
+                                            <td><input id="Anzahl2" type="text" placeholder="Anzahl"></td>
+                                            <td><input id="EPreis2" type="text" placeholder="E. Preis"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input id="Wein3" type="text" placeholder="Wein 3"></td>
+                                            <td><input id="Anzahl3" type="text" placeholder="Anzahl"></td>
+                                            <td><input id="EPreis3" type="text" placeholder="E. Preis"></td>
+                                        </tr>
+                                        <td><input onclick="" type="submit" id="button1" value="Weiter"></td>
+                                    </table>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                    <script>
+                                                            var modal2 = document.getElementById("modal2");
+                                                            var btn2 = document.getElementById("button2");
+                                                            var span2 = document.getElementsByClassName("close2")[0];
+                                                            btn2.onclick = function () {
+                                                                modal2.style.display = "block";
+                                                            }
+                                                            span2.onclick = function () {
+                                                                modal2.style.display = "none";
+                                                            }
+                                                            window.onclick = function (event) {
+                                                                if (event.target == modal2) {
+                                                                    modal2.style.display = "none";
+                                                                }
+                                                            }
+                    </script>
                 </div>
 
+                <div onclick="sellWine()" class="col-md-4">
+                    <button id="button3" class="kaufen">Wein verkaufen</button>
+                    <div id="modal3" class="modal">
+                        <div class="modal-content">
+                            <span class="close3">&times;</span>
+                            <p>
+                                <form id="verkaufen" action="#" method="post">
+                                    <h1>Wein verkaufen</h1>
+                                    <table>
+                                        <tr>
+                                            <td><select name="Wein" id="Wein" onload="selectWine()">
+                                                </select>
+                                            </td>
+                                            <td class="test"><input id="Wein1Anzahl" type="number" placeholder="0" min="0"></td>
+                                            <td rowspan="10"><textarea id="WeinInfos" placeholder="Infos" rows="10"></textarea></td>
+                                        </tr>
+                                        <tr>
+                                            <td><select name="Wein" id="Wein" onload="selectWine()">
+                                            </select></td>
+                                            <td><input id="Wein2Anzahl" type="number" placeholder="0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><select name="Wein" id="Wein" onload="selectWine()">
+                                            </select></td>
+                                            <td><input id="Wein3Anzahl" type="number" placeholder="0"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><input type="radio" value="Abholen">Abholen</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" value="Liefer">Liefern</td>
+                                        </tr>
+                                        </tr>
+                                        <td>
+                                            <button id="weiter">Weiter</button>
+                                            <div id="modal4" class="modal">
+                                                <div class="modal-content">
+                                                    <span class="close4">&times;</span>
+                                                    <p>
+                                                        <form>
+                                                            <h1>Kunde auswählen</h1>
+                                                            <table>
+                                                                <tr>
+                                                                    <td>
+                                                                        <select name="kunde">
+                                                <option>Christian Cahle</option>
+                                                <option>Rosemarie Lang</option>
+                                                <option>Karl-Hans Karle</option>
+                                                <option>Dieter Müller</option>
+                                                <option>Rüdiger Schmidt</option>
+                                            </select>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <table>
+                                                                <tr>
+                                                                    <td colspan="2"><input placeholder="Vorname" style=" width: -webkit-fill-available;"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2"><input placeholder="Nachname" style=" width: -webkit-fill-available;"></td>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td><input placeholder="Straße"></td>
+                                                                    <td><input placeholder="Hausnummer"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input placeholder="PLZ"></td>
+                                                                    <td><input placeholder="Ort"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input placeholder="Tel Nr."></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <input type="submit" style=" width: -webkit-fill-available;">Speichern</input>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </form>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                var modal4 = document.getElementById("modal4");
+                                                var weiter = document.getElementById("weiter");
+                                                var span4 = document.getElementsByClassName("close4")[0];
+                                                weiter.onclick = function () {
+                                                    modal4.style.display = "block";
+                                                }
+                                                 span4.onclick = function () {
+                                                    modal4.style.display = "none";
+                                                 }
+                                                 window.onclick = function (event) {
+                                                    if (event.target == modal4) {
+                                                       modal4.style.display = "none";
+                                                    }
+                                                 }
+                             </script>
+                        </div>
+                    </div>
+                    </td>
+                    </table>
+                    </form>
+                    </p>
+                </div>
             </div>
+            <script>
+                        var modal3 = document.getElementById("modal3");
+                        var btn3 = document.getElementById("button3");
+                        var span3 = document.getElementsByClassName("close3")[0];
+                        btn3.onclick = function () {
+                            modal3.style.display = "block";
+                        }
+                        span3.onclick = function () {
+                            modal3.style.display = "none";
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == modal3) {
+                                modal3.style.display = "none";
+                            }
+                        }
+            </script>
 
         </div>
-        <iframe id="iframe" class="iframe" src="static/wein_anlegen.html" width="100%" height="100%"></iframe>
-        <iframe id="iframeEin" class="iframe" src="static/wein_einkaufen.html" width="100%" height="100%"></iframe>
-        <iframe id="iframeVer" class="iframe" src="static/wein_verkaufen.html" width="100%" height="100%"></iframe>
-        <iframe id="iframeKunde" class="iframe" src="static/kunde_auswaehlen.html" width="100%" height="100%"></iframe>
 </body>
 
 </html>

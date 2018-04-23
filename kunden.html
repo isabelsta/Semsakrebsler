@@ -7,13 +7,6 @@
     <meta charset="UTF-8">
     <title>Kunden</title>
     <script language="javascript" type="text/javascript" src="request.js"></script>
-    <style>
-        #iframe {
-            display: none;
-        }
-
-        ;
-    </style>
 
 </head>
 
@@ -95,14 +88,62 @@
             </div>
         </div>
 
-        <iframe id="iframe" class="iframe" src="static/kunde_anlegen.html"></iframe>
-
         <div class="kundenelement">
             <div class="row">
                 <div class="col-md-10"></div>
                 <div class="col-md-2">
-                    
-                    <button onclick="show()" id="button1" class=anlegen>Kunde anlegen</button>
+
+                    <button id="button1" class=anlegen>Kunde anlegen</button>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>
+                                <form id="kunde" action="#" method="post">
+                                <h1>Kunde anlegen</h1>
+                                <table>
+                                    <tr>
+                                        <td colspan="2"><input placeholder="Vorname" style=" width: -webkit-fill-available;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><input placeholder="Nachname" style=" width: -webkit-fill-available;"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><input placeholder="Straße"></td>
+                                        <td><input placeholder="Hausnummer"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input placeholder="PLZ"></td>
+                                        <td><input placeholder="Ort"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input placeholder="Tel Nr."></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="submit" style=" width: -webkit-fill-available;">Speichern</input></td>
+                                    </tr>
+                                </table>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                    <script>
+                        var modal = document.getElementById("modal1");
+                        var btn = document.getElementById("button1");
+                        var span = document.getElementsByClassName("close")[0];
+                        btn.onclick = function () {
+                            modal.style.display = "block";
+                        }
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>

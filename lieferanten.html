@@ -5,50 +5,89 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Semsakrebsler</title>
     <script src="request.js"></script>
-    <style>
-        #iframe {
-            display: none;
-        }
-
-        ;
-    </style>
 </head>
 
 <body onload="showLieferanten()" class="hintergrund">
-<header class="header">
-    <img src="static/logo.png" class="logo"/>
-    <h1 class="h1"><a href=weine.html class=link>Weine</a></h1>
-    <h1 class="h1"><a href=kunden.html class=link>Kunden</a></h1>
-    <h1 class="h1 aktiv">Lieferanten</h>
-</header>
-<div class="container border">
+    <header class="header">
+        <img src="static/logo.png" class="logo" />
+        <h1 class="h1"><a href=weine.html class=link>Weine</a></h1>
+        <h1 class="h1"><a href=kunden.html class=link>Kunden</a></h1>
+        <h1 class="h1 aktiv">Lieferanten</h>
+    </header>
+    <div class="container border">
 
-    <div class="kundenelement" id="infos">
-        <div class="row">
-            <div class="col-md-10">
-                <h4 id ="name"></h4>
-                <h4 id="info" style="opacity: .7"></h4>
+        <div class="kundenelement" id="infos">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4 id="name"></h4>
+                    <h4 id="info" style="opacity: .7"></h4>
+                </div>
+                <div class="icons col-md-2">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <span class="glyphicon glyphicon-trash"></span>
+                </div>
             </div>
-            <div class="icons col-md-2">
-                <span class="glyphicon glyphicon-edit"></span>
-                <span class="glyphicon glyphicon-trash"></span>
+        </div>
+
+        <div class="kundenelement">
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    <button id="button1" class=anlegen>Lieferant anlegen</button>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form id="lieferant" action="#" method="post">
+                            <p>
+                                <h1>Lieferant anlegen</h1>
+                                <table>
+                                    <tr>
+                                        <td colspan="2"><input placeholder="Name" style=" width: -webkit-fill-available;"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><input placeholder="Straße"></td>
+                                        <td><input placeholder="Hausnummer"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input placeholder="PLZ"></td>
+                                        <td><input placeholder="Ort"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input placeholder="Tel Nr."></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="submit" style=" width: -webkit-fill-available;">Speichern</input></td>
+                                    </tr>
+                                </table>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                    <script>
+                        var modal = document.getElementById("modal1");
+                        var btn = document.getElementById("button1");
+                        var span = document.getElementsByClassName("close")[0];
+                        btn.onclick = function () {
+                            modal.style.display = "block";
+                        }
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
+                </div>
             </div>
         </div>
     </div>
-
-    <iframe id="iframe" class="iframe" src="static/lieferant_anlegen.html"></iframe>
-
-    <div class="kundenelement">
-        <div class="row">
-            <div class="col-md-10"></div>
-            <div class="col-md-2">
-                <button onclick="show()" id="button1" class=anlegen>Lieferant anlegen</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 </body>
 

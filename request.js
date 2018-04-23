@@ -1,3 +1,70 @@
+//Formular in JSON
+(function() {
+	function toJSONString( form ) {
+		var obj = {};
+		var elements = form.querySelectorAll( "input, select, textarea" );
+		for( var i = 0; i < elements.length; ++i ) {
+			var element = elements[i];
+			var name = element.name;
+			var value = element.value;
+
+			if( name ) {
+				obj[ name ] = value;
+			}
+		}
+
+		return JSON.stringify( obj );
+	}
+
+	document.addEventListener( "DOMContentLoaded", function() {
+		var kunde = document.getElementById( "kunde" );
+		kunde.addEventListener( "submit", function( e ) {
+			e.preventDefault();
+			var json = toJSONString( this );
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:8080/rest/api", true);
+            xhttp.send(json);
+		}, false);
+
+        var lieferant = document.getElementById( "lieferant" );
+        lieferant.addEventListener( "submit", function( e ) {
+			e.preventDefault();
+			var json = toJSONString( this );
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:8080/rest/api", true);
+            xhttp.send(json);
+		}, false);
+
+        var neuerwein = document.getElementById( "neuerwein" );
+        neuerwein.addEventListener( "submit", function( e ) {
+			e.preventDefault();
+			var json = toJSONString( this );
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:8080/rest/api", true);
+            xhttp.send(json);
+		}, false);
+
+        var einkaufen = document.getElementById( "einkaufen" );
+        einkaufen.addEventListener( "submit", function( e ) {
+			e.preventDefault();
+			var json = toJSONString( this );
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:8080/rest/api", true);
+            xhttp.send(json);
+		}, false);
+
+        var verkaufen = document.getElementById( "verkaufen" );
+        verkaufen.addEventListener( "submit", function( e ) {
+			e.preventDefault();
+			var json = toJSONString( this );
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:8080/rest/api", true);
+            xhttp.send(json);
+		}, false);
+	});
+
+})();
+
 //Weine ausgeben
 function showWine() {
     var xhttp = new XMLHttpRequest();
@@ -14,6 +81,24 @@ function showWine() {
                 + "<div class='icons col-md-2'><span class='glyphicon glyphicon-edit'></span><span class='glyphicon glyphicon-trash'></span></div></div>";
             }
             document.getElementById("infos").innerHTML = txt;
+        }
+    };
+    xhttp.open("GET", "http://localhost:8080/rest/api/getWines", true);
+    xhttp.send();
+}
+
+//Wein beim Verkaufen anzeigen
+function selectWine() {
+    var xhttp = new XMLHttpRequest();
+    var i, txt="";
+    xhttp.onreadystatechange = function () {
+        var json = JSON.parse(this.responseText);
+        txt += "<option value='' disabled selected>Wein auswählen</option>";
+        if (this.readyState == 4 && this.status == 200) {
+            for (i in json.list) {
+                txt += "<option value='Option " + i + "'>" + json.list[i].Name + "</option>";
+            }
+            document.getElementById("Wein").innerHTML = txt;
         }
     };
     xhttp.open("GET", "http://localhost:8080/rest/api/getWines", true);
@@ -37,66 +122,4 @@ function showLieferanten() {
     };
     xhttp.open("GET", "http://localhost:8080/rest/api/getSuppliers", true);
     xhttp.send();
-}
-
-//neuen Wein anlegen
-function newWine() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-        }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
-}
-
-//Wein einkaufen
-function buyWine() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-        }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
-}
-
-//Wein verkaufen
-function sellWine() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-        }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
-}
-
-//iFrame anzeigen
-function show() {
-    var iframe1 = document.getElementById("iframe");
-    iframe1.style.display = 'block';
-}
-
-//iFrame zum Verkaufen anzeigen
-function showVer() {
-    var iframe1 = document.getElementById("iframeVer");
-    iframe1.style.display = 'block';
-}
-
-//iFrame zum Einkaufen anzeigen
-function showEin() {
-    var iframe1 = document.getElementById("iframeEin");
-    iframe1.style.display = 'block';
-}
-
-//iFrame zum Kunden auswählen anzeigen
-function select() {
-    var iframe1 = document.getElementById("iframeVer");
-    iframe1.style.display = 'none';
-    var iframe1 = document.getElementById("iframeKunde");
-    iframe1.style.display = 'block';
 }
