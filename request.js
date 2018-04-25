@@ -42,17 +42,22 @@ function JSONlieferant() {
 }
 
 function JSONneuerWein() {
+    console.log("öeswgw");
     var wein = document.getElementById("neuerwein");
     var json = toJSONString(wein);
     var xhttp = new XMLHttpRequest();
-    var Bezeichnung = document.getElementById("Bezeichnung");
-    var Jahr = document.getElementById("Jahr");
-    var Region = document.getElementById("Region");
-    var Lage = document.getElementById("Lage");
-    var Herkunftsland = document.getElementById("Herkunftsland");
-    var Anzahl = document.getElementById("Anzahl");
-    var Einkauf = document.getElementById("Einkauf");
-    var Verkauf = document.getElementById("Verkauf");
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var Bezeichnung = document.getElementById("Bezeichnung");
+            var Jahr = document.getElementById("Jahr");
+            var Region = document.getElementById("Region");
+            var Lage = document.getElementById("Lage");
+            var Herkunftsland = document.getElementById("Herkunftsland");
+            var Anzahl = document.getElementById("Anzahl");
+            var Einkauf = document.getElementById("Einkauf");
+            var Verkauf = document.getElementById("Verkauf");
+        }
+    };
     xhttp.open("GET", "http://localhost:8080/rest/api/addWine/"+Bezeichnung+"/"+Jahr+"/"+Region+"/"+Lage+"/"+Herkunftsland+"/"+Anzahl+"/1/"+Einkauf+"/"+Verkauf, true);
     xhttp.send();
 }
