@@ -42,7 +42,8 @@ function JSONlieferant() {
 }
 
 function JSONneuerWein() {
-    var json = toJSONString(this);
+    var wein = document.getElementById("neuerwein");
+    var json = toJSONString(wein);
     var xhttp = new XMLHttpRequest();
     var Bezeichnung = document.getElementById("Bezeichnung");
     var Jahr = document.getElementById("Jahr");
