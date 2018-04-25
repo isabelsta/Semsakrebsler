@@ -36,7 +36,7 @@ function JSONlieferant() {
         var street = document.getElementById("Strasse");
         var Plz = document.getElementById("PLZ");
         var hnum = document.getElementById("Hausnummer");
-        xhttp.open("GET", "http://localhost:8080/rest/api/addSupplier/name/phone/street/region/Plz/hnum", true);
+        xhttp.open("GET", "http://localhost:8080/rest/api/addSupplier/"+name+"/"+phone+"/"+street+"/"+region+"/"+Plz+"/"+hnum, true);
         xhttp.send();
     }, false);
 }
@@ -53,7 +53,7 @@ function JSONneuerWein() {
     var Anzahl = document.getElementById("Anzahl");
     var Einkauf = document.getElementById("Einkauf");
     var Verkauf = document.getElementById("Verkauf");
-    xhttp.open("GET", "http://localhost:8080/rest/api/addWine/Bezeichnung/Jahr/Region/Lage/Herkunftsland/Anzahl/1/Einkauf/Verkauf", true);
+    xhttp.open("GET", "http://localhost:8080/rest/api/addWine/"+Bezeichnung+"/"+Jahr+"/"+Region+"/"+Lage+"/"+Herkunftsland+"/"+Anzahl+"/1/"+Einkauf+"/"+Verkauf, true);
     xhttp.send();
 }
 
@@ -150,7 +150,21 @@ function showLieferanten() {
                 for (i in json.list) {
                     txt += "<div class='row'><div class='col-md-10'><h4>" + json.list[i].Name + ", " + json.list[i].Ort + "</h4>"
                         + "<h4 style='opacity: .7'>" + json.list[i].Telefonnummer + "</h4></div>"
-                        + "<div class='icons col-md-2'><span onclick='editSupplier()' class='glyphicon glyphicon-edit'></span><span onclick='deleteSupplier()' class='glyphicon glyphicon-trash'></span></div></div>";
+                        + "<div class='icons col-md-2'><span onclick='editSupplier()' class='glyphicon glyphicon-edit'>"
+                        + "<div id='modal1' class='modal'><div class='modal-content'><span class='close'>&times;</span>"
+                        + "<form id='lieferant'><p><h1>Lieferant bearbeiten</h1><table>"
+                        + "<tr><td colspan='2'><input id='Name' placeholder="+json.list[i].Name+" style=' width: -webkit-fill-available;'></td></tr>"
+                        + "<tr><td><input id='Strasse'  placeholder="+json.list[i].Strasse+"></td><td><input id='Hausnummer'  placeholder="+json.list[i].Hausnummer+"></td></tr>"
+                        + "<tr><td><input id='PLZ'  placeholder="+json.list[i].PLZ+"></td><td><input id='Ort'  placeholder="+json.list[i].Ort+"></td></tr>"
+                        + "<tr><td><input id='Telefon'  placeholder="+json.list[i].Telefonnummer+"></td></tr>"
+                        + "<tr><td></td><td><button onclick='JSONlieferant()' style=' width: -webkit-fill-available;'>Speichern</button></td>"
+                        + "</tr></table></form></p></div></div>"
+                        + "<script>var modal = document.getElementById('modal1'); "
+                        + "var btn = document.getElementById('button1');"
+                        + "var span = document.getElementsByClassName('close')[0];"
+                        + "btn.onclick = function () { modal.style.display = 'block'; }"
+                        + "span.onclick = function () {  modal.style.display = 'none'; }</script>"                        
+                        + "</span><span onclick='deleteSupplier()' class='glyphicon glyphicon-trash'></span></div></div>";
                 }
                 document.getElementById("infos").innerHTML = txt;
             }
@@ -169,7 +183,7 @@ function editWine(){
     var Anzahl = document.getElementById("Anzahl");
     var Einkauf = document.getElementById("Einkauf");
     var Verkauf = document.getElementById("Verkauf");
-    xhttp.open("GET", "http://localhost:8080/rest/api/updateWine/Bezeichnung/Jahr/Region/Lage/Herkunftsland/Anzahl/1/Einkauf/Verkauf", true);
+    xhttp.open("GET", "http://localhost:8080/rest/api/updateWine/"+Bezeichnung+"/"+Jahr+"/"+Region+"/"+Lage+"/"+Herkunftsland+"/"+Anzahl+"/1/"+Einkauf+"/"+Verkauf, true);
     xhttp.send();
 }
 
@@ -177,19 +191,25 @@ function deleteWine(){
     var xhttp = new XMLHttpRequest();
     var name = document.getElementById("Bezeichnung");
     var year = document.getElementById("Jahr");
-    xhttp.open("GET", "http://localhost:8080/rest/api/deleteWine/name/year", true);
+    xhttp.open("GET", "http://localhost:8080/rest/api/deleteWine/"+name+"/"+year, true);
     xhttp.send();
 }
 
 function editSupplier(){
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://localhost:8080/rest/api/updateSupplier/{name}/{phone}/{street}/{region}/{Plz}/{hnum}", true);
+    var name = document.getElementById("Bezeichnung");
+    var phone = document.getElementById("Jahr");
+    var region = document.getElementById("Region");
+    var street = document.getElementById("Lage");
+    var Plz = document.getElementById("Herkunftsland");
+    var hnum = document.getElementById("Anzahl");
+    xhttp.open("GET", "http://localhost:8080/rest/api/updateSupplier/"+name+"/"+phone+"/"+street+"/"+region+"/"+Plz+"/"+hnum, true);
     xhttp.send();
 }
 
 function deleteSupplier(){
     var xhttp = new XMLHttpRequest();
     var name = document.getElementById("Name");
-    xhttp.open("GET", "http://localhost:8080/rest/api/deleteSupplier/name", true);
+    xhttp.open("GET", "http://localhost:8080/rest/api/deleteSupplier/"+name, true);
     xhttp.send();
 }
