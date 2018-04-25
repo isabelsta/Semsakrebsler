@@ -42,22 +42,18 @@ function JSONlieferant() {
 }
 
 function JSONneuerWein() {
-    var neuerwein = document.getElementById("neuerwein");
-    neuerwein.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var json = toJSONString(this);
-        var xhttp = new XMLHttpRequest();
-        var Bezeichnung = document.getElementById("Bezeichnung");
-        var Jahr = document.getElementById("Jahr");
-        var Region = document.getElementById("Region");
-        var Lage = document.getElementById("Lage");
-        var Herkunftsland = document.getElementById("Herkunftsland");
-        var Anzahl = document.getElementById("Anzahl");
-        var Einkauf = document.getElementById("Einkauf");
-        var Verkauf = document.getElementById("Verkauf");
-        xhttp.open("GET", "http://localhost:8080/rest/api/addWine/Bezeichnung/Jahr/Region/Lage/Herkunftsland/Anzahl/1/Einkauf/Verkauf", true);
-        xhttp.send();
-    }, false);
+    var json = toJSONString(this);
+    var xhttp = new XMLHttpRequest();
+    var Bezeichnung = document.getElementById("Bezeichnung");
+    var Jahr = document.getElementById("Jahr");
+    var Region = document.getElementById("Region");
+    var Lage = document.getElementById("Lage");
+    var Herkunftsland = document.getElementById("Herkunftsland");
+    var Anzahl = document.getElementById("Anzahl");
+    var Einkauf = document.getElementById("Einkauf");
+    var Verkauf = document.getElementById("Verkauf");
+    xhttp.open("GET", "http://localhost:8080/rest/api/addWine/Bezeichnung/Jahr/Region/Lage/Herkunftsland/Anzahl/1/Einkauf/Verkauf", true);
+    xhttp.send();
 }
 
 function JSONeinkaufen() {
